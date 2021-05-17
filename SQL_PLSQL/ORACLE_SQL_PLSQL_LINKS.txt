@@ -1,0 +1,61 @@
+DOCS
+DATABASE
+https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/creating-and-configuring-an-oracle-database.html#GUID-62BADEF5-9C27-4C11-B143-2BCB9E5C3ABF
+
+DATA TYPES
+https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-SYNONYM.html#GUID-A806C82F-1171-478E-A910-F9C6C42739B2
+
+SCHEMA 
+https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-SCHEMA.html#GUID-2D154F9C-9E2B-4A09-B658-2EA5B99AC838
+
+VIEW
+https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-VIEW.html#GUID-61D2D2B4-DACC-4C7C-89EB-7E50D9594D30
+
+SYNONYM
+https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-SYNONYM.html#GUID-A806C82F-1171-478E-A910-F9C6C42739B2
+
+SEQUENCE
+https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-SEQUENCE.html#GUID-E9C78A8C-615A-4757-B2A8-5E6EFB130571
+https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Sequence-Pseudocolumns.html#GUID-693B576A-191D-45F5-B7CB-88D0EA821B44
+
+TABLE
+https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/CREATE-TABLE.html#GUID-F9CE0CC3-13AE-4744-A43C-EAC7A71AAAB6
+https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/INSERT.html#GUID-903F8043-0254-4EE9-ACC1-CB8AC0AF3423
+https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/UPDATE.html#GUID-027A462D-379D-4E35-8611-410F3AC8FDA5
+https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-TABLE.html#GUID-552E7373-BF93-477D-9DA3-B2C9386F2877
+
+DESCRIBE
+https://docs.oracle.com/en/database/oracle/oracle-database/19/sqpug/DESCRIBE.html#GUID-2E7032A1-67E9-4E13-96B6-D8F7B138ECAA
+
+COLUMN 
+https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/ALTER-TABLE.html#GUID-552E7373-BF93-477D-9DA3-B2C9386F2877
+
+DATABASE - C:\app\Admin\product\18.0.0\admin
+C:\app\Admin\product\18.0.0\dbhomeXE\dbs
+C:\app\Admin\product\18.0.0\dbhomeXE\bin
+dbca.bat -J-Doracle.assistants.dbca.validate.ConfigurationParams=false
+C:\app\Admin\product\18.0.0\dbhomeXE\network\admin
+
+C:\app\Admin\product\18.0.0\dbhomeXE\jdbc\lib
+======================================================================
+C:\app\Admin\product\18.0.0\dbhomeXE\demo\schema\human_resources
+https://docs.oracle.com/en/database/oracle/oracle-database/19/comsc/installing-sample-schemas.html#GUID-9C9DEE62-E660-49F8-842B-3256ACA65346
+
+WHO Column
+https://docs.oracle.com/cd/E18727_01/doc.121/e12897/T302934T303920.htm
+USERENV
+https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions165.htm 
+
+MERGE
+
+IN,ALL,ANY
+https://oracle-base.com/articles/misc/all-any-some-comparison-conditions-in-sql
+
+SQL Vs. PL/SQL Vs T-SQL: Key Differences
+https://www.guru99.com/sql-vs-pl-sql.html
+
+PL/SQL Docs 
+https://docs.oracle.com/en/database/oracle/oracle-database/19/lnpls/index.html
+
+PLSQL TUTORIAL
+https://www.oracletutorial.com/plsql-tutorial/
