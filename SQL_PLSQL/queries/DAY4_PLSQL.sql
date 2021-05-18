@@ -242,7 +242,7 @@ BEGIN
   END CASE;
 END;
 ------------------------------------------------
--- 22 LOOP
+-- 22 BASIC LOOP
 DECLARE
   l_counter NUMBER := 0;
 BEGIN
