@@ -129,14 +129,16 @@ END;
 -- 14 AVOID CLUMSY IF
 DECLARE
   B_IS_PROFITABLE BOOLEAN;
-  n_sales      NUMBER := 100;
-  n_costs      NUMBER := 2;
+  n_sales      NUMBER;
+  n_costs      NUMBER ;
 BEGIN
 --  b_IS_profitable := false;   
 --  IF n_sales > n_costs THEN
 --    b_IS_profitable := true;
 --  END IF;
  B_IS_PROFITABLE := n_sales > n_costs;
+ DBMS_OUTPUT.PUT_LINE( n_sales );
+ DBMS_OUTPUT.PUT_LINE( n_costs );
  IF(B_IS_PROFITABLE) THEN
   DBMS_OUTPUT.PUT_LINE( 'PROFIT' );
   ELSE
@@ -162,6 +164,7 @@ BEGIN
   ELSE
     n_commission := n_sales * 0.05;
   END IF;
+   DBMS_OUTPUT.PUT_LINE(n_commision);
 END;
 ------------------------------------
 -- 17 IF THEN ELSIF
@@ -178,6 +181,7 @@ BEGIN
   ELSE
     n_commission := n_sales * 0.02;
   END IF;
+  DBMS_OUTPUT.PUT_LINE(n_commision);
 END;
 -----------------------------------
 -- 18 NESTED IF - NOT RECOMMENDED
@@ -187,7 +191,7 @@ DECLARE
   c_grade CHAR( 1 );
   c_rank  VARCHAR2( 20 );
 BEGIN
-  c_grade := 'B';
+  c_grade := 'b';
   CASE c_grade
   WHEN 'A' THEN
     c_rank := 'Excellent' ;
