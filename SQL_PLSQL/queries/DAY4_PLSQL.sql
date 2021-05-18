@@ -257,3 +257,13 @@ BEGIN
   -- control resumes here after EXIT
   dbms_output.put_line( 'After loop: ' || l_counter );
 END;
+----------------------------------------
+-- 23 FOR LOOP
+DECLARE
+  l_step  PLS_INTEGER := 2;
+BEGIN
+  FOR l_counter IN 1..5
+  LOOP
+    DBMS_OUTPUT.PUT_LINE( l_counter ||' * ' || l_step ||' = ' || l_counter*l_step );
+  END LOOP;
+END;
