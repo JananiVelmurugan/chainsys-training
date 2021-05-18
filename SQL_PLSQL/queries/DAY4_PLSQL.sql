@@ -226,3 +226,34 @@ BEGIN
 
 END;
 -------------------------------------------------
+-- 21 NULL
+DECLARE
+  n_credit_status VARCHAR2( 50 );
+BEGIN
+  n_credit_status := 'GOOD';
+
+  CASE n_credit_status
+  WHEN 'BLOCK' THEN
+   DBMS_OUTPUT.PUT_LINE( 'REQUEST FOR APPROVAL' );
+  WHEN 'WARNING' THEN
+   DBMS_OUTPUT.PUT_LINE( 'SEND EMAIL' );
+  ELSE
+    NULL;
+  END CASE;
+END;
+------------------------------------------------
+-- 22 LOOP
+DECLARE
+  l_counter NUMBER := 0;
+BEGIN
+  LOOP
+    l_counter := l_counter + 1;
+--    IF l_counter > 3 THEN
+--      EXIT;
+--    END IF;
+    EXIT WHEN l_counter > 3;
+    dbms_output.put_line( 'Inside loop: ' || l_counter )  ;
+  END LOOP;
+  -- control resumes here after EXIT
+  dbms_output.put_line( 'After loop: ' || l_counter );
+END;
