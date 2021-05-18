@@ -82,7 +82,10 @@ end
 as Deposit_status from account_info a,customer_personal_info b where a.customer_id=b.customer_id;
 -- Write a query which will display customer id, customer name,  account number, account type, bank name, ifsc code, initial deposit amountand new interest amount for the customers whose name starts with ""J"". Hint:  Formula for calculating ""new interest amount"" is 
 -- if customers account type is savings then add 10 % on current interest amount to interest amount else display the current interest amount.Round the new interest amount to 2 decimals.<br/> Use ""NEW_INTEREST"" as alias name for displaying the new interest amount.
-select a.customer_id,b.customer_name,a.account_no,a.account_type,c.bank_name,a.ifsc_code,a.initial_deposit,a.interest+(a.interest*10/100) as NEW_INTEREST from account_info a,customer_personal_info b,bank_info c where a.customer_id=b.customer_id and a.ifsc_code=c.ifsc_code and b.customer_name like 'J%' and a.account_type='SAVINGS';
+select a.customer_id,b.customer_name,a.account_no,a.account_type,c.bank_name,a.ifsc_code,a.initial_deposit,
+a.interest+(a.interest*10/100) as NEW_INTEREST from account_info a,customer_personal_info b,bank_info c 
+where a.customer_id=b.customer_id and a.ifsc_code=c.ifsc_code 
+and b.customer_name like 'J%' and a.account_type='SAVINGS';
 -- 25) Write query to display the customer id, customer name, account no, initial deposit, tax percentage as calculated below.
 -- Hint:If initial deposit = 0 then tax is '0%'.If initial deposit <= 10000 then tax is '3%' 
 -- If initial deposit > 10000 and initial deposit < 20000 then tax is '5%'.If initial deposit >= 20000 andinitial deposit <=30000 then tax is '7%'.If initial deposit > 30000 then tax is '10%'.Use the alias name 'taxPercentage'
