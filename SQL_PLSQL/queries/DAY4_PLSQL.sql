@@ -262,8 +262,40 @@ END;
 DECLARE
   l_step  PLS_INTEGER := 2;
 BEGIN
-  FOR l_counter IN 1..5
+  FOR l_counter IN REVERSE 1..5
   LOOP
     DBMS_OUTPUT.PUT_LINE( l_counter ||' * ' || l_step ||' = ' || l_counter*l_step );
   END LOOP;
+   --DBMS_OUTPUT.PUT_LINE(  l_counter );
+  DBMS_OUTPUT.PUT_LINE(  l_step  );
 END;
+-----------------------------------------------------
+create table cars(name varchar2(50));
+insert into cars
+values('&name');
+select * from cars;
+-------------------------------------------------------
+-- 24 WHILE LOOP
+DECLARE
+   n_counter NUMBER := 1;
+BEGIN
+   WHILE n_counter <= 5
+      LOOP
+        DBMS_OUTPUT.PUT_LINE( 'Counter : ' || n_counter );
+        n_counter := n_counter + 1;
+        -- EXIT WHEN n_counter = 3;
+      END LOOP;
+   END;
+------------------------------------------------
+-- 25 CONTINUE
+BEGIN
+  FOR n_index IN 1 .. 10
+  LOOP
+    -- skip odd numbers
+    IF MOD( n_index, 2 ) = 1 THEN
+      CONTINUE;
+    END IF;
+    DBMS_OUTPUT.PUT_LINE( n_index );
+  END LOOP;
+END;
+-----------------------------------------------
