@@ -118,7 +118,8 @@ BEGIN
 END;
 ---------------------------------
 -- 13 IF STATEMENT
-DECLARE n_sales NUMBER := 2000000; 
+DECLARE 
+    n_sales NUMBER := 2000000; 
 BEGIN 
    IF n_sales > 100000 THEN 
       DBMS_OUTPUT.PUT_LINE( 'Sales revenue is greater than 100K ' ); 
@@ -127,15 +128,20 @@ END;
 -------------------------------
 -- 14 AVOID CLUMSY IF
 DECLARE
-  b_profitable BOOLEAN;
-  n_sales      NUMBER;
-  n_costs      NUMBER;
+  B_IS_PROFITABLE BOOLEAN;
+  n_sales      NUMBER := 100;
+  n_costs      NUMBER := 2;
 BEGIN
---  b_profitable := false;   
+--  b_IS_profitable := false;   
 --  IF n_sales > n_costs THEN
---    b_profitable := true;
+--    b_IS_profitable := true;
 --  END IF;
-  b_profitable := n_sales > n_costs;
+ B_IS_PROFITABLE := n_sales > n_costs;
+ IF(B_IS_PROFITABLE) THEN
+  DBMS_OUTPUT.PUT_LINE( 'PROFIT' );
+  ELSE
+  DBMS_OUTPUT.PUT_LINE( 'LOSS' );
+  END IF;
 END;
 -------------------------------------------
 -- 15 AVOID EVALUATING BOOLEAN VARIABLES
@@ -199,3 +205,20 @@ BEGIN
   DBMS_OUTPUT.PUT_LINE( c_rank );
 END;
 -------------------------
+-- 20 GOTO
+BEGIN
+  GOTO second_message;
+
+  <<first_message>>
+  DBMS_OUTPUT.PUT_LINE( 'Hello' );
+  GOTO the_end;
+
+  <<second_message>>
+  DBMS_OUTPUT.PUT_LINE( 'PL/SQL GOTO Demo' );
+  GOTO first_message;
+
+  <<the_end>>
+  DBMS_OUTPUT.PUT_LINE( 'and good bye...' );
+
+END;
+-------------------------------------------------
