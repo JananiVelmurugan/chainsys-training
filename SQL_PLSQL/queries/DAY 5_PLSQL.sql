@@ -301,7 +301,7 @@ create or replace FUNCTION cubic (original NUMBER)
     RETURN original_cube;         
 END;
 select cubic(2) from dual;
--- 19 PACKAGE 
+-- 20 PACKAGE 
 CREATE OR REPLACE PACKAGE cus_mgmt as
 function cubic(original NUMBER) return number;
 PROCEDURE print_contact(
