@@ -41,3 +41,48 @@ LOOP STATEMENTS
 + WHILE LOOP 
 + CONTINUE
 + EXIT 
+
+DATATYPES
++ RECORD
++ %TYPE
++ %ROWTYPE
++ ARRAYS
++ NESTED TABLE
+
+CURSORS
++ IMPLICIT
++ EXPLICIT
+PARAMETER MODE
++ IN (DEFAULT)
++ OUT
++ INOUT
+PROCEDURE - BUSINESS LOGIC
++ TRACK_ORDER
++ PLACE_ORDER
++ CANCEL_ORDER
+FUNCTION - COMPUTATIONAL LOGIC 
++ TOTAL_ORDER_VALUE
+PACKAGE 
++ ORDER
+	+ TRACK_ORDER
+	+ PLACE_ORDER
+	+ CANCEL_ORDER
+	+ TOTAL_ORDER_VALUE
+	
+REFERENCE :
+-- C SYNTAX
+INT SQUARE(INT NUMBER){
+ INT RESULT;
+ RESULT = NUMBER * NUMBER;
+ RETURN RESULT;
+}
+-- PLSQL SYNTAX 
+ FUNCTION square (original NUMBER)   -- parameter list
+    RETURN NUMBER                     -- RETURN clause
+  AS                                  -- Declarative part begins
+    original_squared NUMBER;
+  BEGIN                               -- Executable part begins
+    original_squared := original * original;
+    RETURN original_squared;          -- RETURN statement
+  END;
+ 

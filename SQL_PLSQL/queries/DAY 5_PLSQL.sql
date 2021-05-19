@@ -61,21 +61,24 @@ BEGIN
 END;
 -- 6 ASSOCIATIVE ARRAY
 DECLARE
-    -- declare an associative array type
+    -- declare an associative array type - creation
     TYPE t_capital_type 
         IS TABLE OF VARCHAR2(100) 
         INDEX BY VARCHAR2(50);
-    -- declare a variable of the t_capital_type
+    -- declare a variable of the t_capital_type - decalration
     t_capital t_capital_type;
+    
     -- local variable
     l_country VARCHAR2(50);
 BEGIN
-    
+    -- populate values
     t_capital('USA')            := 'Washington, D.C.';
     t_capital('United Kingdom') := 'London';
     t_capital('Japan')          := 'Tokyo';
     
-    l_country := t_capital.FIRST;
+    -- temp varaible
+    l_country := t_capital.FIRST; -- key
+    -- value array_name(key)
     
     WHILE l_country IS NOT NULL LOOP
         dbms_output.put_line('The capital of ' || 
@@ -91,15 +94,15 @@ declare
     numb_list number_tab := number_tab(23,56,34,890,21);
 begin
     for indx in numb_list.first..numb_list.last loop
-        dbms_output.put_line(numb_list(indx));
+        dbms_output.put_line(numb_list(indx));-- array(index)
     end loop;
     numb_list.delete(2);
     numb_list.delete(4);
     dbms_output.put_line('AFTER DELETION');
     for indx in numb_list.first..numb_list.last loop
-        if numb_list.exists(indx) then
+       if numb_list.exists(indx) then
             dbms_output.put_line(numb_list(indx));
-        end if;
+       end if;
     end loop;
 end;
 -- 8 VARRAY
@@ -117,14 +120,17 @@ BEGIN
 END;
 -- 9 RECORD TYPE
 DECLARE
+    -- creation
     TYPE r_customer_type IS RECORD(
         customer_name customer_PERSONAL_INFO.CUSTOMER_NAME%TYPE,
         INTEREST ACCOUNT_INFO.INTEREST%TYPE
     ); 
     
+    -- declaration
     TYPE t_customer_type IS VARRAY(2) 
         OF r_customer_type;
 
+    -- empty array
     t_customers t_customer_type := t_customer_type();
 BEGIN
     t_customers.EXTEND;
@@ -140,7 +146,7 @@ END;
 -- 10 IMPLICIT CURSOR
 BEGIN
     UPDATE CUSTOMER_PERSONAL_INFO
-    SET CUSTOMER_NAME = 'JOHN'
+    SET CUSTOMER_NAME = 'CHAINSYS'
     WHERE CUSTOMER_ID = '&ID';
     IF SQL%FOUND THEN
         DBMS_OUTPUT.PUT_LINE('RECORD UPDATED');
@@ -269,7 +275,7 @@ BEGIN
   DBMS_OUTPUT.PUT_LINE
    ('After invoking procedure, INTEREST: ' || CUS_INT);
 END;
--- 18 Declaring, Defining, and Invoking a Simple PL/SQL Function
+-- 18 Declaring, Defining, and Invoking a Simple PL/SQL Function IN ANONYMOUS BLOCK
 DECLARE
   -- Declare and define function
 
@@ -285,36 +291,66 @@ DECLARE
 BEGIN
   DBMS_OUTPUT.PUT_LINE(square(100));  -- invocation
 END;
--- 19 PACKAGE 
-DROP PACKAGE sample;
-create or replace FUNCTION cubic (original NUMBER)   -- parameter list
-    RETURN NUMBER                     -- RETURN clause
-  AS
-                                     -- Declarative part begins
+-- 19 FUNCTION
+create or replace FUNCTION cubic (original NUMBER)
+    RETURN NUMBER                    
+  AS                                    
     original_cube NUMBER;
-  BEGIN                               -- Executable part begins
+  BEGIN                               
     original_cube := original * original * original;
-    RETURN original_cube;          -- RETURN statement
+    RETURN original_cube;         
 END;
 select cubic(2) from dual;
-
-CREATE OR REPLACE PACKAGE body sample
-AS
- gc_shipped  CONSTANT VARCHAR(10) := 'Shipped';
-  gc_pending  CONSTANT VARCHAR(10) := 'Pending';
-  gc_canceled CONSTANT VARCHAR(10) := 'Canceled'; 
-FUNCTION cubic (original NUMBER)  
-    RETURN NUMBER 
-    AS
-                                     -- Declarative part begins
+-- 19 PACKAGE 
+CREATE OR REPLACE PACKAGE cus_mgmt as
+function cubic(original NUMBER) return number;
+PROCEDURE print_contact(
+    in_customer_id CUSTOMER_PERSONAL_INFO.CUSTOMER_ID%TYPE  
+);
+end;
+CREATE OR REPLACE PACKAGE body cus_mgmt as
+function cubic(original NUMBER) return number
+AS                                    
     original_cube NUMBER;
-  BEGIN                               -- Executable part begins
+  BEGIN                               
     original_cube := original * original * original;
-    RETURN original_cube;          -- RETURN statement
- END;
-
+    RETURN original_cube;         
 END;
+PROCEDURE print_contact(
+    in_customer_id CUSTOMER_PERSONAL_INFO.CUSTOMER_ID%TYPE  
+)
+IS
+  r_contact CUSTOMER_PERSONAL_INFO%ROWTYPE;
 BEGIN
-  DBMS_OUTPUT.PUT_LINE(sample.gc_pending);
+  -- get contact based on customer id
+  SELECT *
+  INTO r_contact
+  FROM CUSTOMER_PERSONAL_INFO
+  WHERE customer_id = IN_customer_id;
+
+  -- print out contact's information
+  dbms_output.put_line( r_contact.CUSTOMER_name || ' ' ||
+  r_contact.GUARDIAN_name || '<' || r_contact.mail_ID ||'>' );
+
+EXCEPTION
+   WHEN OTHERS THEN
+      dbms_output.put_line( SQLERRM );
 END;
-select sample.cubic(2) from dual;
+end;
+-- CALLING PACKAGE.FUNCTION IN SELECT
+SELECT cus_mgmt.cubic(2) FROM DUAL;
+-- CALLING PACKAGE.FUNCTION IN ANONYMOUS BLOCK
+DECLARE
+    RESULT NUMBER;
+begin
+    RESULT := cus_mgmt.cubic(2);
+    DBMS_OUTPUT.PUT_LINE('CUBIC IS ' || RESULT);
+end;
+-- CALLING PACKAGE.PROCEDURE IN ANONYMOUS BLOCK
+begin
+    cus_mgmt.print_contact('C-001');
+end;
+-- EXECUTING PACKAGE.PROCEDURE IN EXECUTE STATEMENT
+EXEC cus_mgmt. print_contact('C-001');
+-- to read erros
+select * from user_errors;
