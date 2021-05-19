@@ -49,6 +49,7 @@ BEGIN
 END;
 ------------------
 -- 8 BASED ON COLUMN TYPE %TYPE 
+-- COLUMN LEVEL ATTRIBUTES
 DECLARE
   l_customer_name customer_PERSONAL_INFO.CUSTOMER_name%TYPE;
   l_CUSTOMER_ID customer_PERSONAL_INFO.CUSTOMER_ID%TYPE;
@@ -292,7 +293,7 @@ BEGIN
   FOR n_index IN 1 .. 10
   LOOP
     -- skip odd numbers
-    IF MOD( n_index, 2 ) = 1 THEN
+    IF MOD( n_index, 2 ) = 0 THEN
       CONTINUE;
     END IF;
     DBMS_OUTPUT.PUT_LINE( n_index );
