@@ -161,7 +161,7 @@ BEGIN
 --    WHEN INVALID_NUMBER THEN
 --        dbms_output.put_line('Customer does not exist');
 END;
--- USER DEFINED EXCEPTION
+-- 8 USER DEFINED EXCEPTION
 DECLARE
     l_name customer_PERSONAL_INFO.CUSTOMER_NAME%TYPE;
     L_GENDER customer_PERSONAL_INFO.GENDER%TYPE:=&GENDER;
@@ -176,7 +176,8 @@ BEGIN
         FROM customer_PERSONAL_INFO
         WHERE GENDER = L_GENDER; 
     ELSE
-        RAISE E_INVALID_GENDER;
+       -- RAISE E_INVALID_GENDER;
+       raise_application_error(-20001,'INVALID GENDER');
     END IF;
   
     
@@ -187,4 +188,22 @@ BEGIN
             dbms_output.put_line('Customer does not exist');
         WHEN TOO_MANY_ROWS THEN
             dbms_output.put_line('The database returns more than one customer');    
+END;
+-- 9 PRAGMA TRANSACTION
+CREATE OR REPLACE PROCEDURE UPDATE_MAIL 
+AS
+    PRAGMA AUTONOMOUS_TRANSACTION;
+    BEGIN
+        UPDATE CUSTOMER_PERSONAL_INFO
+        SET MAIL_ID = 'JANANISE@GMAIL.COM'
+        WHERE CUSTOMER_ID='C001';
+    ROLLBACK;
+END;
+
+BEGIN
+UPDATE CUSTOMER_PERSONAL_INFO
+        SET GENDER = 'F'
+        WHERE CUSTOMER_ID='C001';
+UPDATE_MAIL;
+COMMIT;
 END;
