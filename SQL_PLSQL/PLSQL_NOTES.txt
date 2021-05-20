@@ -81,5 +81,28 @@ INT SQUARE(INT NUMBER){
   END;
 
 + PACKAGE
-+ TRIGGER
++ TRIGGER 
 + EXCEPTION 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

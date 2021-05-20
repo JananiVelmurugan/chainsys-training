@@ -194,27 +194,21 @@ BEGIN
         WHEN TOO_MANY_ROWS THEN
             dbms_output.put_line('The database returns more than one customer');    
 END;
--- 9 PRAGMA TRANSACTION
+-- 9 PRAGMA AUTONOMOUS_TRANSACTION
 CREATE OR REPLACE PROCEDURE UPDATE_MAIL 
 AS
-    PRAGMA AUTONOMOUS_TRANSACTION;
-    BEGIN
-        UPDATE CUSTOMER_PERSONAL_INFO
-        SET MAIL_ID = 'JANANISE@GMAIL.COM'
-        WHERE CUSTOMER_ID='C-001';
+  PRAGMA AUTONOMOUS_TRANSACTION;
+BEGIN
+    UPDATE CUSTOMER_PERSONAL_INFO
+    SET MAIL_ID = 'JANANISE@GMAIL.COM'
+    WHERE CUSTOMER_ID='C-001';
     ROLLBACK;
 END;
 
---declare
---    gender customer_personal_info.gender%type;
---    mail_id customer_personal_info.mail_id%type;
 BEGIN
---    select gender,mail_id into gender,mail_id
---    from customer_personal_info where customer_id='C-001';
-    delete CUSTOMER_PERSONAL_INFO
-            WHERE CUSTOMER_ID='C-001';
+    UPDATE CUSTOMER_PERSONAL_INFO
+    SET MAIL_ID = 'JAMES_123@GMAIL.COM'
+    WHERE CUSTOMER_ID='C-002';
     UPDATE_MAIL;
     COMMIT;
---    select gender,mail_id into gender,mail_id
---    from customer_personal_info where customer_id='C-001';
 END;
