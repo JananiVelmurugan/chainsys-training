@@ -302,12 +302,14 @@ create or replace FUNCTION cubic (original NUMBER)
 END;
 select cubic(2) from dual;
 -- 20 PACKAGE 
+-- CREATE PACKAGE
 CREATE OR REPLACE PACKAGE cus_mgmt as
 function cubic(original NUMBER) return number;
 PROCEDURE print_contact(
     in_customer_id CUSTOMER_PERSONAL_INFO.CUSTOMER_ID%TYPE  
 );
 end;
+-- CREATE PACKAGE BODY
 CREATE OR REPLACE PACKAGE body cus_mgmt as
 function cubic(original NUMBER) return number
 AS                                    
