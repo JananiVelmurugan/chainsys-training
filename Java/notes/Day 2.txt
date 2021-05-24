@@ -31,7 +31,18 @@ collection
 + iterator - only collection can be accessed and modified
 
 CRUD - Create Read Update Delete
+
+exception - unexpected input data/result 
++ keywords
+	+ try - inside method, error prone code 
+	+ catch - inside method, handler code 
+	+ finally - code need to be executed irrespective of exception occur
+	+ throw - explicit exception creation
+	+ throws - method header
++ types 
+	+ predefined - Checked(compile time), Unchecked(run time)
+	+ user defined - project scenario exception
++ java.lang 
 overloading
 overriding
-exception 
 jdbc
