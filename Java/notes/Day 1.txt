@@ -1,0 +1,42 @@
+Software
++ java -version - jdk 1.8
++ eclipse - development
+
+Concepts
+
++ static - single/public
++ instance - private 
++ static final
++ private, public 
++ setter getter method
++ this - instance 
++ Object - toString(), hashcode(), equals()
++ final 
+	+ class - cannot create sub class
+	+ method - cannot override 
+	+ property - cannot change the value
++ constructor
+	+ default
+	+ parameterised
++ encapsulation
+	+ private instance properties
+	+ private static properties
+	+ public default constructor
+	+ public parameterised constructors
+	+ public getter() & setter()
+	+ public hashcode() & equals()
+	+ public toString()
+
+Object Oriented Programming System - OOPS
+
+Terms
++ JDK - Java Development Kit
++ IDE - Integrated Development Environment
+
+Shortcut
++ ctrl + f11 - run
++ ctrl + shift + f - format
++ ctrl + shift + s - save
++ ctrl + space - code assist
++ ctrl + m - maxmize/minimize
+

@@ -1,0 +1,24 @@
+plsql - identifier - table,column,procedure,function,trigger,package,constraint
+			
+login_flight 
+flight_login
+avoid commmon names for identifier 
+use project specific names
+
+
+5 - in a single run 
+any condition - inputs can't be multiple from user '&'
+
+booking
+b100
+
+ticket
+t1
+t2
+
+ticket_booking
+b100 t1
+b100 t2 
+
+stackoverflow 
+oracletech hub

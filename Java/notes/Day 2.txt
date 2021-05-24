@@ -1,0 +1,37 @@
+inheritance
++ reusability
++ child common behaviour - parent method 
++ child common data - parent property 
+
+abstract class
++ abstract method - hiding the implementaion
++ concrete method - implementation/definition will be available 
++ private - method/property hiding
+
+interface
++ implements
++ can't instantiate 
+
+array
++ group of similar objects 
++ group of primitive type - int,String,char,boolean,float,double
++ lacks of predefined methods
+
+collection
++ group of similar objects - Integer,String,Character,Boolean,Float,Double
++ has predefined methods
++ HashSet, HashMap, ArrayList, TreeSet,TreeMap
++ java.util
++ Collection - interface 
++ Collections - util class
++ list allows duplicate, get elements in a particular position
++ set doesn't allow duplicate, can't get elements in particular position 
++ map allows <key,value> - entity , key must be unique
++ iterator, for ,for each - access elements from collection
++ iterator - only collection can be accessed and modified
+
+CRUD - Create Read Update Delete
+overloading
+overriding
+exception 
+jdbc
