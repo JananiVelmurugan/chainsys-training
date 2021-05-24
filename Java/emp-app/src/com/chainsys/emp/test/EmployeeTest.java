@@ -1,4 +1,4 @@
-package com.chainsys.emp.model.test;
+package com.chainsys.emp.test;
 
 import com.chainsys.emp.model.Employee;
 
