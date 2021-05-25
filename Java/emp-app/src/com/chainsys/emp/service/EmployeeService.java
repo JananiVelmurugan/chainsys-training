@@ -10,12 +10,10 @@ public interface EmployeeService {
 
 	Employee findById(int id) throws EmployeeNotFoundException;
 
-	// TODO
 	void save(Employee employee);
 
 	void update(Employee employee) throws EmployeeNotFoundException;
 
-	// TODO
-	void delete(int id);
+	void delete(int id)throws EmployeeNotFoundException;
 
 }

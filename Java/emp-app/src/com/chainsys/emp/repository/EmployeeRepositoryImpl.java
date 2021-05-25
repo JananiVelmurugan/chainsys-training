@@ -8,6 +8,7 @@ import com.chainsys.emp.model.Employee;
 
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
+	// dummy database
 	private static Set<Employee> employeeSet;
 
 	public EmployeeRepositoryImpl() {

@@ -31,7 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void save(Employee employee) {
-		// TODO Auto-generated method stub
+		repository.save(employee);
 
 	}
 
@@ -47,9 +47,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-
+	public void delete(int id) throws EmployeeNotFoundException {
+		Employee employee = repository.findById(id);
+		if (employee == null) {
+			throw new EmployeeNotFoundException("Employee doesn't exist!!");
+		} else {
+			repository.delete(id);
+		}
 	}
 
 }
