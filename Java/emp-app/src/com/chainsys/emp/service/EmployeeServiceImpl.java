@@ -37,28 +37,33 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void save(Employee employee) {
-		repository.save(employee);
+		// repository.save(employee);
+		dao.save(employee);
 
 	}
 
 	@Override
 	public void update(Employee employee) throws EmployeeNotFoundException {
-		Employee result = repository.findById(employee.getId());
+		// Employee result = repository.findById(employee.getId());
+		Employee result = dao.findById(employee.getId());
 		if (result == null) {
 			throw new EmployeeNotFoundException("Employee Id Not Found");
 		} else {
-			repository.update(employee);
+			// repository.update(employee);
+			dao.update(employee);
 		}
 
 	}
 
 	@Override
 	public void delete(int id) throws EmployeeNotFoundException {
-		Employee employee = repository.findById(id);
+		// Employee employee = repository.findById(id);
+		Employee employee = dao.findById(id);
 		if (employee == null) {
 			throw new EmployeeNotFoundException("Employee doesn't exist!!");
 		} else {
-			repository.delete(id);
+			// repository.delete(id);
+			dao.delete(id);
 		}
 	}
 

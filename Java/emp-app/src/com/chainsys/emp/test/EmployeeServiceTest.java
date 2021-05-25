@@ -37,7 +37,7 @@ public class EmployeeServiceTest {
 
 		System.out.println("Update Id");
 		// 1. Create New employee Data to be updated
-		Employee updateEmployee = new Employee(100, "ImmanuelMathew");
+		Employee updateEmployee = new Employee(1, "ImmanuelMathew");
 		try {
 			// 2. call the update method in service with input emp obje
 			service.update(updateEmployee);
@@ -48,13 +48,13 @@ public class EmployeeServiceTest {
 		}
 		
 		System.out.println("Adding an employee");
-		Employee newEmployee = new Employee(104,"Kavin");
+		Employee newEmployee = new Employee(4,"Kavin");
 		service.save(newEmployee);
 		employeeSet = service.findAll();
 		System.out.println(employeeSet);
 		
 		System.out.println("Deleting an employee");
-		id = 10; 
+		id = 3; 
 		try {
 			service.delete(id);
 			employeeSet = service.findAll();

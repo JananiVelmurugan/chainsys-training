@@ -61,19 +61,39 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
 	public void save(Employee employee) {
-		// TODO Auto-generated method stub
+		try {
+			pstmt = con.prepareStatement("insert into employee values(?,?)");
+			pstmt.setInt(1, employee.getId());
+			pstmt.setString(2, employee.getName());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	@Override
 	public void update(Employee employee) {
-		// TODO Auto-generated method stub
+		try {
+			pstmt = con.prepareStatement("update employee set name=? where id=?");
+			pstmt.setString(1, employee.getName());
+			pstmt.setInt(2, employee.getId());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		try {
+			pstmt = con.prepareStatement("delete employee where id=?");
+			pstmt.setInt(1, id);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
