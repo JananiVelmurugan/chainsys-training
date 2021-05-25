@@ -1,0 +1,18 @@
+JDBC
+1. Add jar file
+2. Understand table structure
+3. Load class driver
+4. Establish Connection URL,Username,Password
+5. Create the query
+6. Execute the query 
+7. Close resources (memory leakage)
+
++ java.sql 
+
+
+
+apps
+apps 
+192.168.0.20
+1521
+EBS1228
