@@ -1,0 +1,11 @@
+class
+property
+method
+encapsulation
+interface
+overriding
+collection- set,list,iterator
+if,for,while,case
+jdbc - prepared statement
+scanner
+date,composition
